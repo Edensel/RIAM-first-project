@@ -1,0 +1,31 @@
+# robots.txt for RIAMRIAM Peace and Development Network
+# Generated for search engine optimization
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://riamriam.org/sitemap.xml
+Sitemap: https://riamriam.org/sitemap-news.xml
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

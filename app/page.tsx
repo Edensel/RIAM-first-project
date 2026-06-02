@@ -1,437 +1,264 @@
-import Image from "next/image";
+import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
+import Link from 'next/link'
+import { ArrowRight, Globe, Users, Heart, TrendingUp, BookOpen, Award } from 'lucide-react'
+import { generatePageMetadata } from '@/lib/seo'
 
-const navItems = [
-  ["Who we are", "#who-we-are"],
-  ["What we do", "#what-we-do"],
-  ["Impact", "#impact"],
-  ["Where we work", "#where-we-work"],
-  ["Contact", "#contact"]
-];
-
-const metrics = [
-  ["2000", "Founded as a grassroots peace initiative"],
-  ["2026", "Revived for regional institutional growth"],
-  ["7+", "Pastoral and borderland communities engaged"],
-  ["5", "Strategic pillars for peace and resilience"]
-];
-
-const programs = [
-  {
-    title: "Peacebuilding and conflict resolution",
-    text: "Community dialogue, mediation, cross-border diplomacy, peace education, early warning, and anti-cattle rustling action."
-  },
-  {
-    title: "Governance and civic engagement",
-    text: "Civic education, leadership training, policy advocacy, citizen forums, and accountable local institutions."
-  },
-  {
-    title: "Climate-resilient livelihoods",
-    text: "Pastoral support, fisheries, agro-processing, entrepreneurship, climate-smart agriculture, and peace markets."
-  },
-  {
-    title: "Gender and social inclusion",
-    text: "Women peace networks, GBV prevention, girls' empowerment, disability inclusion, and inclusive decision-making."
-  },
-  {
-    title: "Humanitarian and emergency response",
-    text: "Food security, WASH, relief coordination, disaster preparedness, and resilience for vulnerable households."
-  },
-  {
-    title: "Youth transformation",
-    text: "Mentorship, sports for peace, skills development, crime prevention, and youth economic pathways."
-  },
-  {
-    title: "Education, research, and capacity building",
-    text: "Institutional strengthening, research and advocacy, training workshops, and community awareness campaigns."
-  }
-];
-
-const pillars = [
-  "Peace and governance",
-  "Early warning and rapid response",
-  "Youth transformation and crime prevention",
-  "Climate-resilient livelihoods",
-  "Institutional strengthening"
-];
-
-const regions = [
-  {
-    label: "Primary focus",
-    title: "Turkana County",
-    text: "Intra-county tensions, resource governance, youth vulnerability, and social cohesion."
-  },
-  {
-    label: "Inter-county corridors",
-    title: "Turkana, West Pokot, Baringo, Samburu, Marsabit",
-    text: "Dialogue platforms and resource-sharing mechanisms across conflict-affected communities."
-  },
-  {
-    label: "Cross-border corridors",
-    title: "Karamoja, Toposa, Nyangatom, Dassanach",
-    text: "Regional peace infrastructure across Kenya, Uganda, South Sudan, and Ethiopia."
-  }
-];
-
-const stories = [
-  "Community reconciliation processes that restore trust and create peaceful coexistence agreements.",
-  "Women peace champions who mediate disputes and advocate for social cohesion.",
-  "Youth entrepreneurship and vocational pathways that reduce vulnerability to violence and crime."
-];
+export const metadata = generatePageMetadata(
+  'RIAMRIAM | Peace and Development Network',
+  'Building peace, empowering communities, and transforming lives across East Africa through innovative peacebuilding, community development, and humanitarian response.',
+  '/'
+)
 
 export default function Home() {
+  const stats = [
+    { number: '24+', label: 'Years of Experience', icon: Award },
+    { number: '7+', label: 'Communities Engaged', icon: Users },
+    { number: '5', label: 'Strategic Pillars', icon: Globe },
+    { number: '3', label: 'Countries Served', icon: TrendingUp },
+  ]
+
+  const programs = [
+    {
+      id: 'peace-building',
+      title: 'Peace Building & Conflict Resolution',
+      description: 'Facilitating dialogue, resolving conflicts, and promoting social cohesion across pastoral and borderland communities.',
+      icon: Users,
+    },
+    {
+      id: 'community-dev',
+      title: 'Community Development',
+      description: 'Empowering communities through education, livelihood projects, and sustainable development initiatives.',
+      icon: TrendingUp,
+    },
+    {
+      id: 'humanitarian',
+      title: 'Humanitarian Response',
+      description: 'Providing emergency aid and support during crises, with a focus on vulnerable populations.',
+      icon: Heart,
+    },
+    {
+      id: 'governance',
+      title: 'Governance & Institutional Strengthening',
+      description: 'Building institutional capacity and promoting good governance at all levels.',
+      icon: Globe,
+    },
+  ]
+
+  const regions = [
+    { name: 'Turkana County', description: 'Primary focus area for integrated peacebuilding programs' },
+    { name: 'Karamoja Cluster', description: 'Cross-border pastoral peace initiative' },
+    { name: 'Toposa Corridor', description: 'Community cohesion and resilience building' },
+  ]
+
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-ink/10 bg-bone/95 backdrop-blur-xl">
-        <div className="section-shell flex min-h-20 items-center gap-6">
-          <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="RIAMRIAM Peace and Development Network home">
-            <LogoMark className="h-14 w-14" priority />
-            <span className="leading-none">
-              <strong className="block text-lg font-black tracking-normal text-ink">RIAMRIAM</strong>
-              <span className="block max-w-56 pt-1 text-xs font-extrabold uppercase text-graphite/70">
-                Peace and Development Network
-              </span>
-            </span>
-          </a>
-
-          <nav className="ml-auto hidden items-center gap-7 text-[0.78rem] font-black uppercase text-ink lg:flex">
-            {navItems.map(([label, href]) => (
-              <a key={href} href={href} className="link-underline py-7">
-                {label}
-              </a>
-            ))}
-          </nav>
-
-          <a
-            href="mailto:RiamriamRPDN023@gmail.com"
-            className="ml-auto hidden rounded-sm border-2 border-teal px-5 py-3 text-[0.78rem] font-black uppercase text-teal transition hover:bg-teal hover:text-white lg:ml-0 lg:inline-flex"
-          >
-            Partner with us
-          </a>
-
-          <details className="group relative ml-auto lg:hidden">
-            <summary className="flex h-12 w-12 cursor-pointer list-none items-center justify-center rounded-sm border border-ink/15 text-ink marker:hidden">
-              <span className="sr-only">Open navigation</span>
-              <span className="flex flex-col gap-1.5">
-                <span className="block h-0.5 w-6 bg-current" />
-                <span className="block h-0.5 w-6 bg-current" />
-                <span className="block h-0.5 w-6 bg-current" />
-              </span>
-            </summary>
-            <nav className="absolute right-0 top-14 w-72 rounded-sm border border-ink/10 bg-paper p-3 text-sm font-black uppercase text-ink shadow-soft">
-              {navItems.map(([label, href]) => (
-                <a key={href} href={href} className="block rounded-sm px-4 py-3 hover:bg-bone">
-                  {label}
-                </a>
-              ))}
-              <a href="mailto:RiamriamRPDN023@gmail.com" className="mt-2 block rounded-sm bg-gold px-4 py-3">
-                Partner with us
-              </a>
-            </nav>
-          </details>
-        </div>
-      </header>
-
-      <main id="home">
-        <section className="relative isolate overflow-hidden bg-forest text-paper">
-          <div className="absolute inset-0 -z-20 bg-[linear-gradient(100deg,rgba(16,42,46,0.97)_0%,rgba(16,42,46,0.88)_48%,rgba(7,82,103,0.82)_100%)]" />
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:72px_72px]" />
-          <div className="absolute right-0 top-0 -z-5 h-full w-1/2 opacity-[0.08]">
-            <Image
-              src="/riamriam-logo.png"
-              alt=""
-              fill
-              className="object-contain object-right"
-              aria-hidden="true"
-            />
+      <Header />
+      <main>
+        {/* Hero Section */}
+        <section className="relative pt-20 pb-32 bg-gradient-to-br from-primary-dark via-primary to-primary/80 text-white overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.1)_25%,rgba(255,255,255,.1)_50%,transparent_50%,transparent_75%,rgba(255,255,255,.1)_75%,rgba(255,255,255,.1))] bg-[length:40px_40px]"></div>
           </div>
 
-          <div className="section-shell flex min-h-[calc(100svh-9rem)] items-center justify-center py-16 lg:py-20">
-            <div className="text-center max-w-4xl">
-              <h1 className="text-5xl font-black leading-[0.94] tracking-normal text-paper sm:text-7xl lg:text-8xl">
-                Building peace. Empowering communities. Transforming lives.
+          <div className="container-wide relative z-10">
+            <div className="max-w-3xl">
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-balance">
+                Building Peace. Empowering Communities.
               </h1>
-            </div>
-          </div>
-
-          <div className="grid border-t border-paper/20 bg-ink/30 text-center text-sm font-black uppercase text-paper sm:grid-cols-3">
-            <span className="border-b border-paper/15 px-5 py-5 sm:border-b-0 sm:border-r">Peacebuilding</span>
-            <span className="border-b border-paper/15 px-5 py-5 sm:border-b-0 sm:border-r">Climate resilience</span>
-            <span className="px-5 py-5">Women and youth leadership</span>
-          </div>
-        </section>
-
-        <section id="who-we-are" className="bg-paper py-20 lg:py-28">
-          <div className="section-shell grid gap-12 lg:grid-cols-[0.9fr_1fr]">
-            <div>
-              <p className="mb-4 text-sm font-black uppercase tracking-[0.1em] text-clay">Who we are</p>
-              <h2 className="text-4xl font-black leading-none tracking-normal sm:text-6xl">
-                A regional peace network with local legitimacy.
-              </h2>
-            </div>
-            <div className="space-y-6 text-lg leading-8 text-graphite/78">
-              <p>
-                RiamRiam means meeting and meeting again. It reflects a cultural practice of
-                continuous dialogue, reconciliation, cooperation, and peaceful coexistence.
+              <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
+                RIAMRIAM Peace and Development Network drives sustainable peace and development across East Africa through innovative peacebuilding, community empowerment, and humanitarian response.
               </p>
-              <p>
-                Founded in 2000 and re-institutionalized in 2026, RPDN works with communities,
-                traditional leaders, women, youth, civil society, governments, and development
-                partners to address conflict, exclusion, poverty, climate shocks, and insecurity.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="impact" className="grid bg-teal text-paper md:grid-cols-4">
-          {metrics.map(([value, label]) => (
-            <div key={value} className="border-b border-paper/15 p-8 md:border-b-0 md:border-r lg:p-12">
-              <strong className="block text-6xl font-black leading-none text-gold lg:text-7xl">{value}</strong>
-              <span className="mt-4 block max-w-64 text-base font-extrabold">{label}</span>
-            </div>
-          ))}
-        </section>
-
-        <section id="what-we-do" className="bg-bone py-20 lg:py-28">
-          <div className="section-shell">
-            <div className="max-w-4xl">
-              <p className="mb-4 text-sm font-black uppercase tracking-[0.1em] text-clay">What we do</p>
-              <h2 className="text-4xl font-black leading-none tracking-normal sm:text-6xl">
-                Integrated programs for peace, governance, resilience, and dignity.
-              </h2>
-            </div>
-
-            <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {programs.map((program, index) => (
-                <article
-                  key={program.title}
-                  className="min-h-72 rounded-sm border border-ink/10 bg-paper p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all"
                 >
-                  <span className="text-sm font-black text-clay">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-14 text-2xl font-black leading-tight">{program.title}</h3>
-                  <p className="mt-4 text-base leading-7 text-graphite/72">{program.text}</p>
-                </article>
-              ))}
+                  Learn Our Story
+                  <ArrowRight size={18} />
+                </Link>
+                <Link
+                  href="/donate"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/20 text-white border-2 border-white rounded-lg font-semibold hover:bg-white/30 transition-all"
+                >
+                  Support Our Mission
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-forest py-20 text-paper lg:py-28">
-          <div className="section-shell grid gap-12 lg:grid-cols-[0.92fr_1fr]">
-            <div>
-              <p className="mb-4 text-sm font-black uppercase tracking-[0.1em] text-gold">Strategic pillars</p>
-              <h2 className="text-4xl font-black leading-none tracking-normal sm:text-6xl">
-                Built for regional credibility and measurable delivery.
-              </h2>
+        {/* Impact Statistics */}
+        <section className="py-16 md:py-20 bg-white border-b border-neutral-200">
+          <div className="container-wide">
+            <h2 className="text-3xl font-bold mb-12 text-center">Our Impact</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat) => {
+                const Icon = stat.icon
+                return (
+                  <div key={stat.label} className="text-center">
+                    <div className="mb-4 flex justify-center">
+                      <div className="p-3 bg-primary/10 rounded-lg">
+                        <Icon size={32} className="text-primary" />
+                      </div>
+                    </div>
+                    <p className="text-4xl font-bold text-primary mb-2">{stat.number}</p>
+                    <p className="text-sm text-neutral-600">{stat.label}</p>
+                  </div>
+                )
+              })}
             </div>
-            <div className="border-t border-paper/20">
-              {pillars.map((pillar, index) => (
-                <div key={pillar} className="grid grid-cols-[3rem_1fr] gap-5 border-b border-paper/20 py-6">
-                  <span className="font-black text-gold">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="text-2xl font-black leading-tight">{pillar}</span>
+          </div>
+        </section>
+
+        {/* Programs Section */}
+        <section className="py-16 md:py-24 bg-neutral-50">
+          <div className="container-wide">
+            <div className="max-w-2xl mx-auto text-center mb-16">
+              <h2 className="text-4xl font-bold mb-4">Our Core Programs</h2>
+              <p className="text-lg text-neutral-600">
+                Comprehensive solutions addressing the root causes of conflict and poverty in pastoral and borderland communities.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {programs.map((program) => {
+                const Icon = program.icon
+                return (
+                  <Link
+                    key={program.id}
+                    href={`/programs/${program.id}`}
+                    className="group p-8 bg-white rounded-xl border border-neutral-200 hover:shadow-lg hover:border-primary transition-all"
+                  >
+                    <div className="mb-4 inline-block p-3 bg-primary/10 group-hover:bg-primary group-hover:text-white rounded-lg transition-all">
+                      <Icon size={28} className="text-primary group-hover:text-white transition-colors" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-foreground">{program.title}</h3>
+                    <p className="text-neutral-600 mb-4">{program.description}</p>
+                    <div className="flex items-center text-primary font-semibold group-hover:gap-2 transition-all">
+                      Learn More <ArrowRight size={18} className="ml-auto group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Where We Work */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container-wide">
+            <div className="max-w-2xl mx-auto text-center mb-16">
+              <h2 className="text-4xl font-bold mb-4">Where We Work</h2>
+              <p className="text-lg text-neutral-600">
+                Operating across East Africa with deep roots in pastoral and borderland communities.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {regions.map((region) => (
+                <div key={region.name} className="p-8 border-2 border-primary rounded-xl bg-primary/5">
+                  <h3 className="text-xl font-bold text-primary mb-3">{region.name}</h3>
+                  <p className="text-neutral-600">{region.description}</p>
                 </div>
               ))}
             </div>
-          </div>
-        </section>
 
-        <section id="where-we-work" className="bg-paper py-20 lg:py-28">
-          <div className="section-shell">
-            <div className="max-w-4xl">
-              <p className="mb-4 text-sm font-black uppercase tracking-[0.1em] text-clay">Where we work</p>
-              <h2 className="text-4xl font-black leading-none tracking-normal sm:text-6xl">
-                Focused on pastoral, borderland, and underserved communities.
-              </h2>
-            </div>
-            <div className="mt-12 grid gap-5 lg:grid-cols-3">
-              {regions.map((region) => (
-                <article key={region.title} className="rounded-sm border border-ink/10 border-t-leaf border-t-[6px] bg-bone p-7">
-                  <p className="text-xs font-black uppercase tracking-[0.1em] text-clay">{region.label}</p>
-                  <h3 className="mt-6 text-2xl font-black leading-tight">{region.title}</h3>
-                  <p className="mt-4 leading-7 text-graphite/72">{region.text}</p>
-                </article>
-              ))}
+            <div className="text-center">
+              <Link
+                href="/where-we-work"
+                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all"
+              >
+                Explore Our Operations
+                <ArrowRight size={18} />
+              </Link>
             </div>
           </div>
         </section>
 
-        <section className="bg-bone py-20 lg:py-28">
-          <div className="section-shell">
-            <div className="max-w-4xl">
-              <p className="mb-4 text-sm font-black uppercase tracking-[0.1em] text-clay">Stories of change</p>
-              <h2 className="text-4xl font-black leading-none tracking-normal sm:text-6xl">
-                Local leadership turns dialogue into practical progress.
-              </h2>
-            </div>
-            <div className="mt-12 grid gap-5 lg:grid-cols-3">
-              {stories.map((story, index) => (
-                <article key={story} className="rounded-sm border border-ink/10 bg-paper p-7">
-                  <span className="mb-8 block h-1.5 w-12 bg-gold" />
-                  <h3 className="text-2xl font-black">0{index + 1}</h3>
-                  <p className="mt-5 leading-7 text-graphite/72">{story}</p>
-                </article>
-              ))}
+        {/* Featured Content */}
+        <section className="py-16 md:py-24 bg-neutral-50">
+          <div className="container-wide">
+            <h2 className="text-4xl font-bold mb-12 text-center">Latest Updates & Resources</h2>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <Link
+                href="/news"
+                className="group p-6 bg-white rounded-xl border border-neutral-200 hover:shadow-lg transition-all"
+              >
+                <div className="mb-4 inline-block p-3 bg-accent/10 rounded-lg">
+                  <BookOpen size={24} className="text-accent" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">News & Stories</h3>
+                <p className="text-neutral-600 text-sm mb-4">
+                  Stay updated with our latest initiatives, success stories, and organizational updates.
+                </p>
+                <span className="text-accent font-semibold text-sm group-hover:gap-2 inline-flex items-center gap-1">
+                  Read News <ArrowRight size={16} />
+                </span>
+              </Link>
+
+              <Link
+                href="/resources/reports"
+                className="group p-6 bg-white rounded-xl border border-neutral-200 hover:shadow-lg transition-all"
+              >
+                <div className="mb-4 inline-block p-3 bg-secondary/10 rounded-lg">
+                  <TrendingUp size={24} className="text-secondary" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">Reports & Data</h3>
+                <p className="text-neutral-600 text-sm mb-4">
+                  Access our annual reports, impact assessments, and research publications.
+                </p>
+                <span className="text-secondary font-semibold text-sm group-hover:gap-2 inline-flex items-center gap-1">
+                  View Reports <ArrowRight size={16} />
+                </span>
+              </Link>
+
+              <Link
+                href="/get-involved"
+                className="group p-6 bg-white rounded-xl border border-neutral-200 hover:shadow-lg transition-all"
+              >
+                <div className="mb-4 inline-block p-3 bg-primary/10 rounded-lg">
+                  <Users size={24} className="text-primary" />
+                </div>
+                <h3 className="text-lg font-bold mb-2">Get Involved</h3>
+                <p className="text-neutral-600 text-sm mb-4">
+                  Join our team, volunteer, partner with us, or support our mission.
+                </p>
+                <span className="text-primary font-semibold text-sm group-hover:gap-2 inline-flex items-center gap-1">
+                  Explore Ways <ArrowRight size={16} />
+                </span>
+              </Link>
             </div>
           </div>
         </section>
 
-        <section className="bg-paper py-20">
-          <div className="section-shell rounded-sm bg-teal p-8 text-paper shadow-soft lg:flex lg:items-center lg:justify-between lg:gap-12 lg:p-14">
-            <div className="max-w-3xl">
-              <p className="mb-4 text-sm font-black uppercase tracking-[0.1em] text-gold">Partnerships</p>
-              <h2 className="text-4xl font-black leading-none tracking-normal sm:text-5xl">
-                Partner with us to strengthen peace infrastructure across the Ateker corridor.
-              </h2>
+        {/* CTA Section */}
+        <section className="py-16 md:py-24 bg-primary-dark text-white">
+          <div className="container-wide text-center">
+            <h2 className="text-4xl font-bold mb-6">Ready to Make a Difference?</h2>
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+              Whether you want to donate, partner with us, or get involved, there are many ways to support our mission of building peace and empowering communities.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/donate"
+                className="px-8 py-4 bg-secondary text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all"
+              >
+                Donate Today
+              </Link>
+              <Link
+                href="/contact"
+                className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all"
+              >
+                Get in Touch
+              </Link>
             </div>
-            <a
-              href="mailto:RiamriamRPDN023@gmail.com"
-              className="mt-8 inline-flex rounded-sm bg-gold px-6 py-4 text-sm font-black uppercase text-ink transition hover:-translate-y-0.5 lg:mt-0"
-            >
-              Start a conversation
-            </a>
           </div>
         </section>
       </main>
-
-      <footer
-        id="contact"
-        className="bg-[linear-gradient(135deg,#183727_0%,#102a2e_54%,#075267_100%)] text-paper"
-      >
-        <div className="section-shell grid gap-10 border-b border-paper/30 py-16 lg:grid-cols-[0.9fr_1fr]">
-          <div className="flex items-center gap-4">
-            <LogoMark className="h-20 w-20" />
-            <div>
-              <strong className="block text-3xl font-black leading-none">RIAMRIAM</strong>
-              <span className="text-sm font-bold uppercase text-paper/80">Peace and Development Network</span>
-            </div>
-          </div>
-          <p className="max-w-2xl text-lg leading-8 text-paper/86">
-            A peaceful, resilient, inclusive, and prosperous region where communities coexist in
-            dignity, security, and sustainable development.
-          </p>
-        </div>
-
-        <div className="section-shell grid gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
-          <FooterColumn
-            title="Who we are"
-            links={[
-              ["About RPDN", "#who-we-are"],
-              ["Impact", "#impact"],
-              ["Partnerships", "mailto:RiamriamRPDN023@gmail.com"]
-            ]}
-          />
-          <FooterColumn
-            title="What we do"
-            links={[
-              ["Peacebuilding", "#what-we-do"],
-              ["Governance", "#what-we-do"],
-              ["Livelihoods", "#what-we-do"],
-              ["Humanitarian response", "#what-we-do"]
-            ]}
-          />
-          <FooterColumn
-            title="Where we work"
-            links={[
-              ["Turkana County", "#where-we-work"],
-              ["Karamoja Cluster", "#where-we-work"],
-              ["Toposa Corridor", "#where-we-work"],
-              ["Nyangatom and Dassanach", "#where-we-work"]
-            ]}
-          />
-          <div className="rounded-sm border border-paper/35 p-6">
-            <h2 className="text-sm font-black uppercase">Contact us</h2>
-            <div className="mt-5 space-y-4 text-paper/90">
-              <div>
-                <p className="text-xs font-black uppercase text-paper/70">Address</p>
-                <p className="mt-1">P.O. Box 246 - 30500, Lodwar</p>
-              </div>
-              <div>
-                <p className="text-xs font-black uppercase text-paper/70">Phone</p>
-                <a href="tel:0792618189" className="mt-1 block font-semibold text-paper/88 hover:text-white">
-                  0792 618 189
-                </a>
-                <a href="tel:0796563344" className="font-semibold text-paper/88 hover:text-white">
-                  0796 563 344
-                </a>
-              </div>
-              <div>
-                <p className="text-xs font-black uppercase text-paper/70">Email</p>
-                <a className="mt-1 block break-words font-bold text-paper/88 hover:text-white" href="mailto:RiamriamRPDN023@gmail.com">
-                  RiamriamRPDN023@gmail.com
-                </a>
-              </div>
-              <div className="pt-2">
-                <p className="text-xs font-black uppercase text-paper/70 mb-3">Follow us</p>
-                <div className="flex gap-3">
-                  <a
-                    href="https://facebook.com/Riamiriam"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-paper/88 hover:text-white transition"
-                    aria-label="Visit our Facebook page"
-                  >
-                    Facebook
-                  </a>
-                  <a
-                    href="https://twitter.com/Riamiriam"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-paper/88 hover:text-white transition"
-                    aria-label="Visit our X (Twitter) page"
-                  >
-                    X
-                  </a>
-                  <a
-                    href="https://linkedin.com/company/riamriam-peace-and-development"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-paper/88 hover:text-white transition"
-                    aria-label="Visit our LinkedIn page"
-                  >
-                    LinkedIn
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="section-shell flex flex-col gap-3 border-t border-paper/25 py-6 text-sm text-paper/80 md:flex-row md:items-center md:justify-between">
-          <span>© 2026 RIAMRIAM Peace and Development Network</span>
-          <span>Building Peace. Empowering Communities. Transforming Lives.</span>
-        </div>
-      </footer>
+      <Footer />
     </>
-  );
-}
-
-function FooterColumn({ title, links }: { title: string; links: string[][] }) {
-  return (
-    <div>
-      <h2 className="text-sm font-black uppercase">{title}</h2>
-      <div className="mt-5 space-y-3">
-        {links.map(([label, href]) => (
-          <a key={label} href={href} className="block font-semibold text-paper/88 hover:text-white">
-            {label}
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function LogoMark({ className = "", priority = false }: { className?: string; priority?: boolean }) {
-  return (
-    <span
-      className={`relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-ink/10 bg-paper shadow-sm ${className}`}
-    >
-      <Image
-        src="/riamriam-logo.png"
-        width={453}
-        height={400}
-        alt="RPDN logo"
-        priority={priority}
-        className="h-[95%] w-[95%] object-contain mix-blend-multiply"
-      />
-    </span>
-  );
+  )
 }
