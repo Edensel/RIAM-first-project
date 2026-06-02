@@ -83,12 +83,12 @@ export default function Home() {
     <>
       <header className="sticky top-0 z-50 border-b border-ink/10 bg-bone/95 backdrop-blur-xl">
         <div className="section-shell flex min-h-20 items-center gap-6">
-          <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="RPDN home">
+          <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="RIAMRIAM Peace and Development Network home">
             <LogoMark className="h-14 w-14" priority />
             <span className="leading-none">
-              <strong className="block text-lg font-black tracking-normal text-ink">RPDN</strong>
+              <strong className="block text-lg font-black tracking-normal text-ink">RIAMRIAM</strong>
               <span className="block max-w-56 pt-1 text-xs font-extrabold uppercase text-graphite/70">
-                RIAMRIAM Peace and Development Network
+                Peace and Development Network
               </span>
             </span>
           </a>
@@ -105,7 +105,7 @@ export default function Home() {
             href="mailto:RiamriamRPDN023@gmail.com"
             className="ml-auto hidden rounded-sm border-2 border-teal px-5 py-3 text-[0.78rem] font-black uppercase text-teal transition hover:bg-teal hover:text-white lg:ml-0 lg:inline-flex"
           >
-            Partner with RPDN
+            Partner with us
           </a>
 
           <details className="group relative ml-auto lg:hidden">
@@ -124,7 +124,7 @@ export default function Home() {
                 </a>
               ))}
               <a href="mailto:RiamriamRPDN023@gmail.com" className="mt-2 block rounded-sm bg-gold px-4 py-3">
-                Partner with RPDN
+                Partner with us
               </a>
             </nav>
           </details>
@@ -135,6 +135,15 @@ export default function Home() {
         <section className="relative isolate overflow-hidden bg-forest text-paper">
           <div className="absolute inset-0 -z-20 bg-[linear-gradient(100deg,rgba(16,42,46,0.97)_0%,rgba(16,42,46,0.88)_48%,rgba(7,82,103,0.82)_100%)]" />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:72px_72px]" />
+          <div className="absolute right-0 top-0 -z-5 h-full w-1/2 opacity-[0.08]">
+            <Image
+              src="/riamriam-logo.png"
+              alt=""
+              fill
+              className="object-contain object-right"
+              aria-hidden="true"
+            />
+          </div>
 
           <div className="section-shell flex min-h-[calc(100svh-9rem)] items-center justify-center py-16 lg:py-20">
             <div className="text-center max-w-4xl">
@@ -270,7 +279,7 @@ export default function Home() {
             <div className="max-w-3xl">
               <p className="mb-4 text-sm font-black uppercase tracking-[0.1em] text-gold">Partnerships</p>
               <h2 className="text-4xl font-black leading-none tracking-normal sm:text-5xl">
-                Partner with RPDN to strengthen peace infrastructure across the Ateker corridor.
+                Partner with us to strengthen peace infrastructure across the Ateker corridor.
               </h2>
             </div>
             <a
@@ -291,8 +300,8 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <LogoMark className="h-20 w-20" />
             <div>
-              <strong className="block text-3xl font-black leading-none">RPDN</strong>
-              <span className="text-sm font-bold uppercase text-paper/80">RIAMRIAM Peace and Development Network</span>
+              <strong className="block text-3xl font-black leading-none">RIAMRIAM</strong>
+              <span className="text-sm font-bold uppercase text-paper/80">Peace and Development Network</span>
             </div>
           </div>
           <p className="max-w-2xl text-lg leading-8 text-paper/86">
@@ -329,21 +338,65 @@ export default function Home() {
             ]}
           />
           <div className="rounded-sm border border-paper/35 p-6">
-            <h2 className="text-sm font-black uppercase">Contact RPDN</h2>
-            <div className="mt-5 space-y-3 text-paper/90">
-              <p>P.O. Box 246 - 30500, Lodwar</p>
-              <p>0792 618 189 / 0796 563 344</p>
-              <a className="block break-words font-bold" href="mailto:RiamriamRPDN023@gmail.com">
-                RiamriamRPDN023@gmail.com
-              </a>
-              <p>Facebook / X: @Riamiriam</p>
-              <p>LinkedIn: RIAMRIAM Peace and Development</p>
+            <h2 className="text-sm font-black uppercase">Contact us</h2>
+            <div className="mt-5 space-y-4 text-paper/90">
+              <div>
+                <p className="text-xs font-black uppercase text-paper/70">Address</p>
+                <p className="mt-1">P.O. Box 246 - 30500, Lodwar</p>
+              </div>
+              <div>
+                <p className="text-xs font-black uppercase text-paper/70">Phone</p>
+                <a href="tel:0792618189" className="mt-1 block font-semibold text-paper/88 hover:text-white">
+                  0792 618 189
+                </a>
+                <a href="tel:0796563344" className="font-semibold text-paper/88 hover:text-white">
+                  0796 563 344
+                </a>
+              </div>
+              <div>
+                <p className="text-xs font-black uppercase text-paper/70">Email</p>
+                <a className="mt-1 block break-words font-bold text-paper/88 hover:text-white" href="mailto:RiamriamRPDN023@gmail.com">
+                  RiamriamRPDN023@gmail.com
+                </a>
+              </div>
+              <div className="pt-2">
+                <p className="text-xs font-black uppercase text-paper/70 mb-3">Follow us</p>
+                <div className="flex gap-3">
+                  <a
+                    href="https://facebook.com/Riamiriam"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-paper/88 hover:text-white transition"
+                    aria-label="Visit our Facebook page"
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    href="https://twitter.com/Riamiriam"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-paper/88 hover:text-white transition"
+                    aria-label="Visit our X (Twitter) page"
+                  >
+                    X
+                  </a>
+                  <a
+                    href="https://linkedin.com/company/riamriam-peace-and-development"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-paper/88 hover:text-white transition"
+                    aria-label="Visit our LinkedIn page"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="section-shell flex flex-col gap-3 border-t border-paper/25 py-6 text-sm text-paper/80 md:flex-row md:items-center md:justify-between">
-          <span>© 2026 RIAMRIAM Peace and Development Network (RPDN)</span>
+          <span>© 2026 RIAMRIAM Peace and Development Network</span>
           <span>Building Peace. Empowering Communities. Transforming Lives.</span>
         </div>
       </footer>
