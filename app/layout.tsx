@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   }
 };
 
+import { LanguageProvider } from "./context/LanguageContext";
+import Chatbot from "./riamriam-contact-ops-chat/Chatbot";
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -27,7 +30,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased" suppressHydrationWarning>
+        <LanguageProvider>
+          {children}
+          <Chatbot />
+        </LanguageProvider>
+      </body>
     </html>
   );
 }

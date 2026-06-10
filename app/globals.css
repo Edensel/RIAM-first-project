@@ -26,8 +26,15 @@ body {
 }
 
 .section-shell {
-  width: min(1180px, calc(100% - 32px));
+  width: min(92%, 1280px);
   margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .section-shell {
+    width: 70%;
+    max-width: 1280px;
+  }
 }
 
 .link-underline {
@@ -41,4 +48,18 @@ body {
 .link-underline:hover,
 .link-underline:focus-visible {
   background-size: 100% 2px;
+}
+
+.brand-marquee {
+  animation: brand-marquee 34s linear infinite;
+}
+
+@keyframes brand-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }

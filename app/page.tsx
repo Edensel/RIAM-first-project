@@ -1,4 +1,5 @@
 import Image from "next/image";
+import OperationsPage from "./riamriam-contact-ops-chat/OperationsPage";
 
 const navItems = [
   ["Who we are", "#who-we-are"],
@@ -87,7 +88,7 @@ export default function Home() {
             <LogoMark className="h-14 w-14" priority />
             <span className="leading-none">
               <strong className="block text-lg font-black tracking-normal text-ink">RIAMRIAM</strong>
-              <span className="block max-w-56 pt-1 text-xs font-extrabold uppercase text-graphite/70">
+              <span className="block pt-1 text-xs font-extrabold uppercase text-graphite/70 whitespace-nowrap">
                 Peace and Development Network
               </span>
             </span>
@@ -132,27 +133,57 @@ export default function Home() {
       </header>
 
       <main id="home">
-        <section className="relative isolate overflow-hidden bg-forest text-paper">
-          <div className="absolute inset-0 -z-20 bg-[linear-gradient(100deg,rgba(16,42,46,0.97)_0%,rgba(16,42,46,0.88)_48%,rgba(7,82,103,0.82)_100%)]" />
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:72px_72px]" />
-          <div className="absolute right-0 top-0 -z-5 h-full w-1/2 opacity-[0.08]">
-            <Image
+        <section className="relative flex min-h-[calc(100vh-5rem)] w-full flex-col justify-between overflow-hidden text-paper">
+          <style dangerouslySetInnerHTML={{__html: `
+            @keyframes marqueeContinuous {
+              0% { transform: translateX(0%); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-marquee-continuous {
+              animation: marqueeContinuous 20s linear infinite;
+            }
+          `}} />
+          <div className="absolute inset-0 -z-40 bg-forest" />
+          <div className="absolute inset-0 -z-30 bg-[linear-gradient(100deg,rgba(16,42,46,0.97)_0%,rgba(16,42,46,0.88)_48%,rgba(7,82,103,0.82)_100%)]" />
+          <div className="absolute inset-0 -z-20 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:72px_72px]" />
+          
+          {/* Centered background logo */}
+          <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-30 pointer-events-none select-none">
+            <img
               src="/riamriam-logo.png"
               alt=""
-              fill
-              className="object-contain object-right"
-              aria-hidden="true"
+              className="h-[80%] w-[80%] max-w-[700px] max-h-[700px] object-contain object-center"
             />
           </div>
 
-          <div className="section-shell flex min-h-[calc(100svh-9rem)] items-center justify-center py-16 lg:py-20">
-            <div className="text-center max-w-4xl">
-              <h1 className="text-5xl font-black leading-[0.94] tracking-normal text-paper sm:text-7xl lg:text-8xl">
-                Building peace. Empowering communities. Transforming lives.
+          {/* Marquee Banner at the top of the page */}
+          <div className="relative z-10 w-full overflow-hidden pt-12 pb-6 opacity-90">
+            <div className="flex w-[200%] animate-marquee-continuous whitespace-nowrap">
+              {/* Set 1 */}
+              <div className="flex w-1/2 justify-around items-center">
+                <span className="text-sm font-black uppercase tracking-[0.25em] text-paper/90 px-10 sm:text-base lg:text-lg">RIAMRIAM • PEACE AND DEVELOPMENT NETWORK</span>
+                <span className="text-sm font-black uppercase tracking-[0.25em] text-paper/90 px-10 sm:text-base lg:text-lg">RIAMRIAM • PEACE AND DEVELOPMENT NETWORK</span>
+              </div>
+              {/* Set 2 */}
+              <div className="flex w-1/2 justify-around items-center">
+                <span className="text-sm font-black uppercase tracking-[0.25em] text-paper/90 px-10 sm:text-base lg:text-lg">RIAMRIAM • PEACE AND DEVELOPMENT NETWORK</span>
+                <span className="text-sm font-black uppercase tracking-[0.25em] text-paper/90 px-10 sm:text-base lg:text-lg">RIAMRIAM • PEACE AND DEVELOPMENT NETWORK</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Slogan in the Center */}
+          <div className="section-shell flex flex-grow items-center justify-center py-10">
+            <div className="text-center max-w-5xl">
+              <h1 className="text-4xl font-black leading-[1.15] tracking-normal text-paper sm:text-6xl lg:text-7xl">
+                Continuous Dialogue.
+                <br />
+                Cultural Diplomacy for Peace.
               </h1>
             </div>
           </div>
 
+          {/* Three Categories Footer */}
           <div className="grid border-t border-paper/20 bg-ink/30 text-center text-sm font-black uppercase text-paper sm:grid-cols-3">
             <span className="border-b border-paper/15 px-5 py-5 sm:border-b-0 sm:border-r">Peacebuilding</span>
             <span className="border-b border-paper/15 px-5 py-5 sm:border-b-0 sm:border-r">Climate resilience</span>
@@ -234,25 +265,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="where-we-work" className="bg-paper py-20 lg:py-28">
-          <div className="section-shell">
-            <div className="max-w-4xl">
-              <p className="mb-4 text-sm font-black uppercase tracking-[0.1em] text-clay">Where we work</p>
-              <h2 className="text-4xl font-black leading-none tracking-normal sm:text-6xl">
-                Focused on pastoral, borderland, and underserved communities.
-              </h2>
-            </div>
-            <div className="mt-12 grid gap-5 lg:grid-cols-3">
-              {regions.map((region) => (
-                <article key={region.title} className="rounded-sm border border-ink/10 border-t-leaf border-t-[6px] bg-bone p-7">
-                  <p className="text-xs font-black uppercase tracking-[0.1em] text-clay">{region.label}</p>
-                  <h3 className="mt-6 text-2xl font-black leading-tight">{region.title}</h3>
-                  <p className="mt-4 leading-7 text-graphite/72">{region.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <OperationsPage />
 
         <section className="bg-bone py-20 lg:py-28">
           <div className="section-shell">
@@ -435,3 +448,4 @@ function LogoMark({ className = "", priority = false }: { className?: string; pr
     </span>
   );
 }
+
