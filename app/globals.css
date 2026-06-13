@@ -20,6 +20,11 @@ body {
   color: #102a2e;
 }
 
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 ::selection {
   background: #f1c857;
   color: #102a2e;

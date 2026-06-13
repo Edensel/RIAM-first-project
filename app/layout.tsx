@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 import { LanguageProvider } from "./context/LanguageContext";
-import Chatbot from "./riamriam-contact-ops-chat/Chatbot";
+import Chatbot from "./components/Chatbot";
 
 export default function RootLayout({
   children
@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <LanguageProvider>
           {children}

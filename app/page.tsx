@@ -1,58 +1,46 @@
 import Image from "next/image";
-import OperationsPage from "./riamriam-contact-ops-chat/OperationsPage";
-
-const navItems = [
-  ["Who we are", "#who-we-are"],
-  ["What we do", "#what-we-do"],
-  ["Impact", "#impact"],
-  ["Where we work", "#where-we-work"],
-  ["Contact", "#contact"]
-];
-
-const metrics = [
-  ["2000", "Founded as a grassroots peace initiative"],
-  ["2026", "Revived for regional institutional growth"],
-  ["7+", "Pastoral and borderland communities engaged"],
-  ["5", "Strategic pillars for peace and resilience"]
-];
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import OperationsPage from "./components/OperationsPage";
+import ImpactSection from "./components/ImpactSection";
 
 const programs = [
   {
-    title: "Peacebuilding and conflict resolution",
-    text: "Community dialogue, mediation, cross-border diplomacy, peace education, early warning, and anti-cattle rustling action."
+    title: "Peacebuilding and Conflict Transformation",
+    text: "Community dialogue, peace education, mediation, reconciliation, cross-border diplomacy, early warning systems, and anti-cattle rustling initiatives."
   },
   {
-    title: "Governance and civic engagement",
-    text: "Civic education, leadership training, policy advocacy, citizen forums, and accountable local institutions."
+    title: "Governance and Civic Participation",
+    text: "Civic education, leadership development, governance strengthening, policy advocacy, social accountability, and citizen participation."
   },
   {
-    title: "Climate-resilient livelihoods",
-    text: "Pastoral support, fisheries, agro-processing, entrepreneurship, climate-smart agriculture, and peace markets."
+    title: "Sustainable Livelihoods and Economic Empowerment",
+    text: "Vocational skills development, entrepreneurship, climate-smart agriculture, pastoralist support, fisheries development, and women's economic empowerment."
   },
   {
-    title: "Gender and social inclusion",
-    text: "Women peace networks, GBV prevention, girls' empowerment, disability inclusion, and inclusive decision-making."
+    title: "Gender Equality and Social Inclusion",
+    text: "Women's leadership development, prevention and response to gender-based violence, girls' empowerment, and disability inclusion programming."
   },
   {
-    title: "Humanitarian and emergency response",
-    text: "Food security, WASH, relief coordination, disaster preparedness, and resilience for vulnerable households."
+    title: "Humanitarian Response and Resilience",
+    text: "Emergency relief assistance, food security and nutrition programs, Water, sanitation, and hygiene (WASH), disaster preparedness, and community resilience."
   },
   {
-    title: "Youth transformation",
-    text: "Mentorship, sports for peace, skills development, crime prevention, and youth economic pathways."
+    title: "Youth Development and Social Transformation",
+    text: "Youth leadership and mentorship, sports for peace initiatives, skills development and employability, and countering violent extremism."
   },
   {
-    title: "Education, research, and capacity building",
-    text: "Institutional strengthening, research and advocacy, training workshops, and community awareness campaigns."
+    title: "Research, Learning, and Institutional Development",
+    text: "Applied research and policy analysis, community-based studies, Monitoring, Evaluation, Accountability, and Learning (MEAL), and organizational capacity strengthening."
   }
 ];
 
 const pillars = [
-  "Peace and governance",
-  "Early warning and rapid response",
-  "Youth transformation and crime prevention",
-  "Climate-resilient livelihoods",
-  "Institutional strengthening"
+  "Peacebuilding, Governance, and Social Cohesion",
+  "Early Warning, Conflict Prevention, and Community Protection",
+  "Youth Empowerment and Social Transformation",
+  "Climate Resilience and Sustainable Livelihoods",
+  "Institutional Strengthening and Strategic Partnerships"
 ];
 
 const regions = [
@@ -82,55 +70,7 @@ const stories = [
 export default function Home() {
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-ink/10 bg-bone/95 backdrop-blur-xl">
-        <div className="section-shell flex min-h-20 items-center gap-6">
-          <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="RIAMRIAM Peace and Development Network home">
-            <LogoMark className="h-14 w-14" priority />
-            <span className="leading-none">
-              <strong className="block text-lg font-black tracking-normal text-ink">RIAMRIAM</strong>
-              <span className="block pt-1 text-xs font-extrabold uppercase text-graphite/70 whitespace-nowrap">
-                Peace and Development Network
-              </span>
-            </span>
-          </a>
-
-          <nav className="ml-auto hidden items-center gap-7 text-[0.78rem] font-black uppercase text-ink lg:flex">
-            {navItems.map(([label, href]) => (
-              <a key={href} href={href} className="link-underline py-7">
-                {label}
-              </a>
-            ))}
-          </nav>
-
-          <a
-            href="mailto:RiamriamRPDN023@gmail.com"
-            className="ml-auto hidden rounded-sm border-2 border-teal px-5 py-3 text-[0.78rem] font-black uppercase text-teal transition hover:bg-teal hover:text-white lg:ml-0 lg:inline-flex"
-          >
-            Partner with us
-          </a>
-
-          <details className="group relative ml-auto lg:hidden">
-            <summary className="flex h-12 w-12 cursor-pointer list-none items-center justify-center rounded-sm border border-ink/15 text-ink marker:hidden">
-              <span className="sr-only">Open navigation</span>
-              <span className="flex flex-col gap-1.5">
-                <span className="block h-0.5 w-6 bg-current" />
-                <span className="block h-0.5 w-6 bg-current" />
-                <span className="block h-0.5 w-6 bg-current" />
-              </span>
-            </summary>
-            <nav className="absolute right-0 top-14 w-72 rounded-sm border border-ink/10 bg-paper p-3 text-sm font-black uppercase text-ink shadow-soft">
-              {navItems.map(([label, href]) => (
-                <a key={href} href={href} className="block rounded-sm px-4 py-3 hover:bg-bone">
-                  {label}
-                </a>
-              ))}
-              <a href="mailto:RiamriamRPDN023@gmail.com" className="mt-2 block rounded-sm bg-gold px-4 py-3">
-                Partner with us
-              </a>
-            </nav>
-          </details>
-        </div>
-      </header>
+      <Header />
 
       <main id="home">
         <section className="relative flex min-h-[calc(100vh-5rem)] w-full flex-col justify-between overflow-hidden text-paper">
@@ -192,35 +132,92 @@ export default function Home() {
         </section>
 
         <section id="who-we-are" className="bg-paper py-20 lg:py-28">
-          <div className="section-shell grid gap-12 lg:grid-cols-[0.9fr_1fr]">
-            <div>
-              <p className="mb-4 text-sm font-black uppercase tracking-[0.1em] text-clay">Who we are</p>
-              <h2 className="text-4xl font-black leading-none tracking-normal sm:text-6xl">
-                A regional peace network with local legitimacy.
-              </h2>
+          <div className="section-shell">
+            <div className="grid gap-12 lg:grid-cols-[0.9fr_1fr]">
+              <div>
+                <p className="mb-4 text-sm font-black uppercase tracking-[0.1em] text-clay">Who we are</p>
+                <h2 className="text-4xl font-black leading-none tracking-normal sm:text-6xl text-ink">
+                  A regional peace network with local legitimacy.
+                </h2>
+              </div>
+              <div className="space-y-6 text-lg leading-8 text-graphite/78">
+                <p>
+                  RIAMRIAM Peace and Development Network (RPDN) is a community-driven Civil Society Organization 
+                  and Community-Based Organization operating across Kenya and the wider East African Ateker corridor. 
+                  Originally established in 2000 and revitalized in 2026, the network works to promote peace, 
+                  social cohesion, resilience, and sustainable development among marginalized pastoral and borderland communities.
+                </p>
+                <p>
+                  The name &ldquo;RiamRiam,&rdquo; drawn from Ateker cultural traditions, means &ldquo;meeting and meeting again,&rdquo; 
+                  symbolizing continuous dialogue, reconciliation, cooperation, and peaceful coexistence. Guided by the motto, 
+                  &ldquo;Building Peace. Empowering Communities. Transforming Lives,&rdquo; RPDN integrates traditional peace 
+                  mechanisms with modern development approaches to address conflict, insecurity, poverty, climate vulnerability, and social exclusion.
+                </p>
+              </div>
             </div>
-            <div className="space-y-6 text-lg leading-8 text-graphite/78">
-              <p>
-                RiamRiam means meeting and meeting again. It reflects a cultural practice of
-                continuous dialogue, reconciliation, cooperation, and peaceful coexistence.
-              </p>
-              <p>
-                Founded in 2000 and re-institutionalized in 2026, RPDN works with communities,
-                traditional leaders, women, youth, civil society, governments, and development
-                partners to address conflict, exclusion, poverty, climate shocks, and insecurity.
-              </p>
+
+            {/* Vision, Mission, and Core Values Cards */}
+            <div className="mt-16 grid gap-8 md:grid-cols-3">
+              <div className="flex flex-col justify-between rounded-xl bg-forest p-8 text-paper shadow-md border-t-4 border-gold">
+                <div>
+                  <h3 className="text-sm font-black uppercase tracking-widest text-gold">Vision</h3>
+                  <p className="mt-6 text-lg font-medium leading-relaxed">
+                    A peaceful, resilient, inclusive, and prosperous East Africa where communities live in dignity, coexist harmoniously, and enjoy equitable opportunities for sustainable development.
+                  </p>
+                </div>
+                <span className="mt-8 block h-1 w-12 bg-gold/55" />
+              </div>
+
+              <div className="flex flex-col justify-between rounded-xl bg-teal p-8 text-paper shadow-md border-t-4 border-gold">
+                <div>
+                  <h3 className="text-sm font-black uppercase tracking-widest text-gold">Mission</h3>
+                  <p className="mt-6 text-lg font-medium leading-relaxed">
+                    To advance sustainable peace, social cohesion, and community resilience through locally led peacebuilding, humanitarian action, inclusive governance, climate adaptation, and sustainable livelihood interventions that transform lives and strengthen vulnerable communities across the Ateker Corridor and beyond.
+                  </p>
+                </div>
+                <span className="mt-8 block h-1 w-12 bg-gold/55" />
+              </div>
+
+              <div className="flex flex-col justify-between rounded-xl bg-bone p-8 text-ink shadow-md border-t-4 border-clay border border-ink/5">
+                <div>
+                  <h3 className="text-sm font-black uppercase tracking-widest text-clay">Core Values</h3>
+                  <ul className="mt-6 grid grid-cols-1 gap-1 text-xs font-bold text-graphite/90">
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-clay" /> Peace and Non-Violence
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-clay" /> Integrity and Accountability
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-clay" /> Human Dignity and Respect
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-clay" /> Inclusivity and Equity
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-clay" /> Community Ownership &amp; Participation
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-clay" /> Good Governance &amp; Transparency
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-clay" /> Innovation &amp; Continuous Learning
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-clay" /> Gender Equality &amp; Social Justice
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-clay" /> Partnership &amp; Collaboration
+                    </li>
+                  </ul>
+                </div>
+                <span className="mt-8 block h-1 w-12 bg-clay/55" />
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="impact" className="grid bg-teal text-paper md:grid-cols-4">
-          {metrics.map(([value, label]) => (
-            <div key={value} className="border-b border-paper/15 p-8 md:border-b-0 md:border-r lg:p-12">
-              <strong className="block text-6xl font-black leading-none text-gold lg:text-7xl">{value}</strong>
-              <span className="mt-4 block max-w-64 text-base font-extrabold">{label}</span>
-            </div>
-          ))}
-        </section>
+        <ImpactSection />
 
         <section id="what-we-do" className="bg-bone py-20 lg:py-28">
           <div className="section-shell">
@@ -296,7 +293,7 @@ export default function Home() {
               </h2>
             </div>
             <a
-              href="mailto:RiamriamRPDN023@gmail.com"
+              href="/partnerships"
               className="mt-8 inline-flex rounded-sm bg-gold px-6 py-4 text-sm font-black uppercase text-ink transition hover:-translate-y-0.5 lg:mt-0"
             >
               Start a conversation
@@ -305,147 +302,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer
-        id="contact"
-        className="bg-[linear-gradient(135deg,#183727_0%,#102a2e_54%,#075267_100%)] text-paper"
-      >
-        <div className="section-shell grid gap-10 border-b border-paper/30 py-16 lg:grid-cols-[0.9fr_1fr]">
-          <div className="flex items-center gap-4">
-            <LogoMark className="h-20 w-20" />
-            <div>
-              <strong className="block text-3xl font-black leading-none">RIAMRIAM</strong>
-              <span className="text-sm font-bold uppercase text-paper/80">Peace and Development Network</span>
-            </div>
-          </div>
-          <p className="max-w-2xl text-lg leading-8 text-paper/86">
-            A peaceful, resilient, inclusive, and prosperous region where communities coexist in
-            dignity, security, and sustainable development.
-          </p>
-        </div>
-
-        <div className="section-shell grid gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
-          <FooterColumn
-            title="Who we are"
-            links={[
-              ["About RPDN", "#who-we-are"],
-              ["Impact", "#impact"],
-              ["Partnerships", "mailto:RiamriamRPDN023@gmail.com"]
-            ]}
-          />
-          <FooterColumn
-            title="What we do"
-            links={[
-              ["Peacebuilding", "#what-we-do"],
-              ["Governance", "#what-we-do"],
-              ["Livelihoods", "#what-we-do"],
-              ["Humanitarian response", "#what-we-do"]
-            ]}
-          />
-          <FooterColumn
-            title="Where we work"
-            links={[
-              ["Turkana County", "#where-we-work"],
-              ["Karamoja Cluster", "#where-we-work"],
-              ["Toposa Corridor", "#where-we-work"],
-              ["Nyangatom and Dassanach", "#where-we-work"]
-            ]}
-          />
-          <div className="rounded-sm border border-paper/35 p-6">
-            <h2 className="text-sm font-black uppercase">Contact us</h2>
-            <div className="mt-5 space-y-4 text-paper/90">
-              <div>
-                <p className="text-xs font-black uppercase text-paper/70">Address</p>
-                <p className="mt-1">P.O. Box 246 - 30500, Lodwar</p>
-              </div>
-              <div>
-                <p className="text-xs font-black uppercase text-paper/70">Phone</p>
-                <a href="tel:0792618189" className="mt-1 block font-semibold text-paper/88 hover:text-white">
-                  0792 618 189
-                </a>
-                <a href="tel:0796563344" className="font-semibold text-paper/88 hover:text-white">
-                  0796 563 344
-                </a>
-              </div>
-              <div>
-                <p className="text-xs font-black uppercase text-paper/70">Email</p>
-                <a className="mt-1 block break-words font-bold text-paper/88 hover:text-white" href="mailto:RiamriamRPDN023@gmail.com">
-                  RiamriamRPDN023@gmail.com
-                </a>
-              </div>
-              <div className="pt-2">
-                <p className="text-xs font-black uppercase text-paper/70 mb-3">Follow us</p>
-                <div className="flex gap-3">
-                  <a
-                    href="https://facebook.com/Riamiriam"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-paper/88 hover:text-white transition"
-                    aria-label="Visit our Facebook page"
-                  >
-                    Facebook
-                  </a>
-                  <a
-                    href="https://twitter.com/Riamiriam"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-paper/88 hover:text-white transition"
-                    aria-label="Visit our X (Twitter) page"
-                  >
-                    X
-                  </a>
-                  <a
-                    href="https://linkedin.com/company/riamriam-peace-and-development"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-paper/88 hover:text-white transition"
-                    aria-label="Visit our LinkedIn page"
-                  >
-                    LinkedIn
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="section-shell flex flex-col gap-3 border-t border-paper/25 py-6 text-sm text-paper/80 md:flex-row md:items-center md:justify-between">
-          <span>© 2026 RIAMRIAM Peace and Development Network</span>
-          <span>Building Peace. Empowering Communities. Transforming Lives.</span>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
-
-function FooterColumn({ title, links }: { title: string; links: string[][] }) {
-  return (
-    <div>
-      <h2 className="text-sm font-black uppercase">{title}</h2>
-      <div className="mt-5 space-y-3">
-        {links.map(([label, href]) => (
-          <a key={label} href={href} className="block font-semibold text-paper/88 hover:text-white">
-            {label}
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function LogoMark({ className = "", priority = false }: { className?: string; priority?: boolean }) {
-  return (
-    <span
-      className={`relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-ink/10 bg-paper shadow-sm ${className}`}
-    >
-      <Image
-        src="/riamriam-logo.png"
-        width={453}
-        height={400}
-        alt="RPDN logo"
-        priority={priority}
-        className="h-[95%] w-[95%] object-contain mix-blend-multiply"
-      />
-    </span>
-  );
-}
-
